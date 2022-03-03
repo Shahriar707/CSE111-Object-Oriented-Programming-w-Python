@@ -1,0 +1,246 @@
+Name: Shahriar Ahmed
+ID: 20101588
+Section: 11
+Course: CSE111
+Topic: Lab-8 Assignment
+
+#Question-1:
+
+class Student:
+    def __init__(self, name='Just a student', dept='nothing'):
+        self.__name = name
+        self.__department = dept
+    def set_department(self, dept):
+        self.__department = dept
+    def get_name(self):
+        return self.__name
+    def set_name(self,name):
+        self.__name = name
+    def __str__(self):
+        return 'Name: '+self.__name+' Department: '+self.__department
+                 
+class BBA_Student:
+    def __init__(self, name='default', dept='BBA'):
+        self.__name = name
+        self.__department = dept
+    def set_department(self, dept):
+        self.__department = dept
+    def get_name(self):
+        return self.__name
+    def set_name(self,name):
+        self.__name = name
+    def __str__(self):
+        return 'Name: '+self.__name+' Department: '+self.__department
+                 
+print(BBA_Student())
+print(BBA_Student('Humpty Dumpty'))
+print(BBA_Student('Little Bo Peep'))
+
+
+#Question-2:
+
+class Vehicle:
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+    def moveUp(self):
+        self.y+=1
+    def moveDown(self):
+        self.y-=1
+    def moveRight(self):
+        self.x+=1
+    def moveLeft(self):
+        self.x-=1
+    def equals(self,other):
+        a = str(self)
+        b = str(other)
+        return a == b
+    def __str__(self):
+        return '('+str(self.x)+' , '+str(self.y)+')'
+    
+class Vehicle2010(Vehicle):
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+    def moveUpperRight(self):
+        self.x+=1
+        self.y+=1
+    def moveUpperLeft(self):
+        self.x-=1
+        self.y+=1
+    def moveLowerRight(self):
+        self.x+=1
+        self.y-=1
+    def moveLowerLeft(self):
+        self.x-=1
+        self.y-=1
+    def __str__(self):
+        return '('+str(self.x)+' , '+str(self.y)+')'
+    
+    
+print('Part 1')
+print('------')
+car = Vehicle()
+print(car)
+car.moveUp()
+print(car)
+car.moveLeft()
+print(car)
+car.moveDown()
+print(car)
+car.moveRight()
+print(car)
+print('------')
+print('Part 2')
+print('------')
+car1 = Vehicle2010()
+print(car1)
+car1.moveLowerLeft()
+print(car1)
+car2 = Vehicle2010()
+car2.moveLeft()
+print(car1.equals(car2))
+car2.moveDown()
+print(car1.equals(car2))
+print('------')
+
+
+#Question-3:
+
+class RealNumber:
+    def __init__(self, r=0):
+        self.__realValue = r
+    def getRealValue(self):
+        return self.__realValue
+    def setRealValue(self, r):
+        self.__realValue = r
+    def ping(self):
+        print('I am in RealNumber class')
+    def __str__(self):
+        return 'RealPart: '+str(self.getRealValue())
+    
+class ComplexNumber(RealNumber):
+    def __init__(self, r=1.0, c=1.0):
+        self.__realValue = float(r)
+        self.__complexValue = float(c)
+    def getRealValue(self):
+        return self.__realValue
+    def setRealValue(self, r):
+        self.__realValue = r
+    def getComplexValue(self):
+        return self.__complexValue
+    def setComplexValue(self, c):
+        self.__complexValue = c
+    def ping(self):
+        print('I am in ComplexNumber class')
+    def __str__(self):
+        return 'RealPart: '+str(self.getRealValue())+'\nImaginaryPart: '+str(self.getComplexValue())
+
+cn1 = ComplexNumber()
+print(cn1)
+print('---------')
+cn2 = ComplexNumber(5,7)
+print(cn2)
+print('---------')
+
+
+#Question-4:
+
+class Account:
+    def __init__(self,balance):
+        self._balance = balance
+    def getBalance(self):
+        return self._balance
+    
+class CheckingAccount(Account):
+    x=0
+    numberOfAccount=str(x)
+    def __init__(self,balance=0):
+        CheckingAccount.x += 1
+        CheckingAccount.numberOfAccount = str(CheckingAccount.x)
+        self.balance = balance
+    def __str__(self):
+        return 'Account Balance: '+ str(self.balance)
+
+print('Number of Checking Accounts: '+CheckingAccount.numberOfAccount)
+print(CheckingAccount())
+print(CheckingAccount(100.00))
+print(CheckingAccount(200.00))
+print('Number of Checking Accounts: '+CheckingAccount.numberOfAccount)
+
+
+#Question-5:
+
+class Animal:
+    def __init__(self,sound):
+        self.__sound = sound
+    def makeSound(self):
+        return self.__sound
+
+class Dog(Animal):
+    def __init__(self,sound):
+        self.__sound = sound
+    def makeSound(self):
+        return self.__sound
+    
+class Cat(Animal):
+    def __init__(self,sound):
+        self.__sound = sound
+    def makeSound(self):
+        return self.__sound
+
+class Printer:
+    def printSound(self, a):
+        print(a.makeSound())
+
+d1 = Dog('bark')
+c1 = Cat('meow')
+a1 = Animal('Animal does not make sound')
+pr = Printer()
+pr.printSound(a1)
+pr.printSound(c1)
+pr.printSound(d1)
+
+
+#Question-6:
+
+class Fruit:
+    def __init__(self, formalin=False, name=''):
+        self.__formalin = formalin
+        self.name = name
+    def getName(self):
+        return self.name
+    def hasFormalin(self):
+        return self.__formalin
+    def __str__(self):
+        return self.name
+    
+class Mango(Fruit):
+    def __init__(self, formalin=True, name='Mango'):
+        self.__formalin = formalin
+        self.name = name 
+    def hasFormalin(self):
+        return self.__formalin
+    
+class Jackfruit(Fruit):
+    def __init__(self, formalin=False, name='Jackfruit'):
+        self.__formalin = formalin
+        self.name = name
+    def hasFormalin(self):
+        return self.__formalin
+    
+class testFruit:
+    def test(self, f):
+        print('----Printing Detail----') 
+        if f.hasFormalin():
+            print('Do not eat the',f.getName(),'.')
+            print(f,'s are bad for you', sep='')
+        else:
+            print('Eat the',f.getName(),'.')
+            print(f,'s are good for you',sep='')
+            
+m = Mango()
+j = Jackfruit()
+t1 = testFruit()
+t1.test(m)
+t1.test(j)

@@ -1,0 +1,116 @@
+Faculty:
+Faculty Initial:
+Topic:
+
+Question-1: Find the Capital letters using .upper() and Small letters using .lower() .... Then try it by yourself.
+
+Question-2: Find the Maximum number using max() and Minimum number using min() .... Then try it by yourself.
+
+Question-3:
+ 
+def A(a):
+    b=""
+    for i in range(len(a)):
+        if a[i]=="A" or a[i]=="B" or a[i]=="C" or a[i]=="D" or a[i]=="E" or a[i]=="F" or a[i]=="G" or a[i]=="H" or a[i]=="I" or a[i]=="J" or a[i]=="K" or a[i]=="L" or a[i]=="M" or a[i]=="N" or a[i]=="O" or a[i]=="P" or a[i]=="Q" or a[i]=="R" or a[i]=="S" or a[i]=="T" or a[i]=="U" or a[i]=="V" or a[i]=="W" or a[i]=="X" or a[i]=="Y" or a[i]=="Z" :
+            b=b+a[i]
+    return(b)
+a=input()
+print(A(a))
+
+Question-4:
+
+def primeSet(a):
+    b=[]
+    for i in range(len(a)):
+        count=0
+        c=int(a[i])
+        for j in range(1,c+1):
+            if c%j==0:
+                count+=1
+        if count==2:
+            b.append(a[i])
+    return(b)
+a=input().split(",")
+print(primeSet(a))
+
+Question-5:
+
+a=input().split(",")
+b=[]
+for i in range(len(a)):
+    c=a[i]
+    for j in range(len(c)):
+        if c[0]=="p" or c[0]=="P" and c[len(c)-1]=="n" or c[len(c)-1]=="N":
+            b.append(c)
+            break
+print(b)
+
+Question-6:
+
+a=input().split(",")
+count=0
+for i in range(len(a)-1):
+    for j in range(i+1,len(a)):
+        if a[i]==a[j]:
+            print(a[i])
+            count=1
+            break
+    if count==1:
+        break
+
+Question-7:
+
+a=input().split(",")
+c=0
+d=0
+for i in range(len(a)):
+    b=int(a[i])
+    if b%2==0:
+        c+=b
+        d+=1
+print(int(c/d))
+
+Question-8:
+
+def A(a):
+    for i in range(len(a)):
+        if a[i]=="S":
+            if a[i+1]=="P":
+                return i 
+a=input()
+print(A(a))
+
+Question-9:
+
+def primeSet(a):
+    b=[]
+    for i in range(len(a)):
+        count=0
+        c=int(a[i])
+        for j in range(1,c+1):
+            if c%j==0:
+                count+=1
+        if count==2:
+            b.append(a[i])
+    for i in range(len(b)-1):  
+        for j in range(0, len(b)-i-1):  
+            if b[j] > b[j+1] : 
+                b[j], b[j+1] = b[j+1], b[j]
+    return (b[len(b)-1])
+
+
+a=input().split(",")
+print(primeSet(a))
+
+Question-10:
+
+a=input()
+count=0
+for i in range(len(a)):
+    if a[i]=="A":
+        if count==0:
+            print(i,end="")
+            count+=1
+        else:
+            print(",",end="")
+            print(i,end="")

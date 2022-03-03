@@ -1,0 +1,161 @@
+Name: Shahriar Ahmed
+ID: 20101588
+Section: 11
+Course: CSE111
+Assignment: Lab-6
+
+
+#Question-1:
+
+class Calculator:
+    def __init__(self,value1,operator,value2):
+        self.value1 = value1
+        self.operator = operator
+        self.value2 = value2
+        print ("Let's Calculate!")
+    def add(self,value1,value2):
+        return value1+value2
+    def subtract(self,value1,value2):
+        return value1-value2
+    def multiply(self,value1,value2):
+        return value1*value2
+    def divide(self,value1,value2):
+        try:
+            return value1/value2
+        except ZeroDivisionError:
+            print ("Give a non zero value")
+
+value1,operator,value2 = int(input()), input(), int(input())
+calc = Calculator(value1,operator,value2)
+if operator == "+":
+    result = calc.add(value1,value2)
+if operator == "-":
+    result = calc.subtract(value1,value2)
+if operator == "*":
+    result = calc.multiply(value1,value2)
+if operator == "/":
+    result = calc.divide(value1,value2)
+    
+print ("Value 1: ",calc.value1,
+       "\nOperator: ",calc.operator,
+       "\nValue 2: ",calc.value2,
+       "\nResult: ",result)
+   
+
+#Question-2:
+
+class Customer:
+    def __init__(self,name):
+        self.name = name
+    
+    def greet (self,name=None):
+        if name == None:
+            print("Hello!")
+        else:
+            print("Hello {}!".format(self.name))
+            
+    def purchase (self, *product):
+        print ("{}, you purchased {} item(s):".format(self.name,len(product)))
+        for i in product:
+            print (i)
+            
+customer_1 = Customer("Sam")
+customer_1.greet()
+customer_1.purchase("chips", "chocolate", "orange juice")
+print("-----------------------------")
+customer_2 = Customer("David")
+customer_2.greet("David")
+customer_2.purchase("orange juice")
+
+
+#Question-3:
+
+class Panda:
+    def __init__(self,name,gender,age):
+        self.name = name
+        self.gender = gender 
+        self.age = age
+        
+    def sleep(self,hours=None):
+        self.hours = hours 
+        
+        if hours == None:
+            return "{}'s duration is unknown thus should have only bamboo leaves".format(self.name)
+            
+        else:
+            if hours >=3 and hours <=5:
+                food = "Mixed Veggies"
+            elif hours >=6 and hours <=8:
+                food = "Eggplant and Tofu"
+            elif hours >=9 and hours <=11:
+                food = "Broccoli Chicken"
+            
+            return "{} sleeps {} hours daily and should have {}".format(self.name, self.hours, food)
+        
+panda1 = Panda("Kunfu","Male", 5)
+panda2=Panda("Pan Pan","Female",3)
+panda3=Panda("Ming Ming","Female",8)
+print("{} is a {} Panda Bear who is {} years old".format(panda1.name,panda1.gender,panda1.age))
+print("{} is a {} Panda Bear who is {} years old".format(panda2.name,panda2.gender,panda2.age))
+print("{} is a {} Panda Bear who is {} years old".format(panda3.name,panda3.gender,panda3.age))
+
+print(panda2.sleep(10))
+print(panda1.sleep(4))
+print(panda3.sleep())
+
+
+#Question-4:
+
+class Cat:
+    def __init__(self,color="White",action="sitting"):
+        self.color = color
+        self.action = action
+        
+    def changeColor(self,color):
+        self.color = color
+        
+    def printCat(self):
+        print (self.color,"cat is",self.action)
+        
+c1 = Cat()
+c2 = Cat("Black")
+c3 = Cat("Brown", "jumping")
+c4 = Cat("Red", "purring")
+c1.printCat()
+c2.printCat()
+c3.printCat()
+c4.printCat()
+c1.changeColor("Blue")
+c3.changeColor("Purple")
+c1.printCat()
+c3.printCat()
+
+
+#Question-5:
+
+class Vehicle:
+    def __init__(self,x=0,y=0):
+        self.x = x
+        self.y = y
+        
+    def print_position(self):
+        print ("(" + str(self.x) + "," + str(self.y) + ")")
+        
+    def moveUp(self, distance=1):
+        self.y += distance 
+    def moveDown(self, distance=1):
+        self.y -= distance 
+    def moveRight(self, distance=1):
+        self.x += distance
+    def moveLeft(self, distance=1):
+        self.x -=  distance 
+        
+car = Vehicle()
+car.print_position()
+car.moveUp()
+car.print_position()
+car.moveLeft()
+car.print_position()
+car.moveDown()
+car.print_position()
+car.moveRight()

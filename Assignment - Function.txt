@@ -1,0 +1,185 @@
+Name: Shahriar Ahmed
+Section: 11
+Course: CSE111
+Assignment: 02-Functions
+
+
+#Easy-1:
+
+def division (x,y):
+    if x==0:
+        return ((x/y)-(x//y))
+    if y==0:
+        return ((y/x)-(y//x))
+    if x>y or x<y:
+        return ((x/y)-(x//y))
+x=int (input())
+y=int (input())
+print (division(x,y))
+
+*****or*****
+
+def result(a, b):
+    if a==0 or b==0:
+        return 0
+    else:
+        c=a/b
+        d=int(c)
+        c=c-d
+        print(str("{:.1f}".format(c)))
+        return ('')
+print(result(a=int(input()), b=int(input())))
+
+#Easy-2:
+
+a=int(input())
+b=int(input())
+a=a/100
+a=a*a
+c=b/a
+if(c>30):
+    print("Score is "+str("{:.1f}".format(c))+" Obese")
+elif(c>=25 and c<=30):
+    print("Score is "+str("{:.1f}".format(c))+" Overweight")
+elif(c>=18.4 and c<=24.9):
+    print("YScore is "+str("{:.1f}".format(c))+" Normal")
+else:
+    print("Score is "+str("{:.1f}".format(c))+" Underweight")
+
+#Easy-3:
+
+def num(x,y,z):
+    total=0
+    for a in range(x,y):
+        if a%z==0:
+            total+=a
+    return total
+
+a=int(input("Enter minimum number: "))
+b=int(input("Enter maximum number: "))
+c=int(input("Enter divisor: "))
+print(num(a,b,c))
+
+#Medium-1:
+
+def foodpanda(name,place="Mohakhali"):
+    price=int()
+    if name=="BBQ Chicken Cheese Burger":
+        price=(0.08*250)+250
+    elif name=="BeefBurger":
+        price=(0.08*170)+170
+    else:
+        price = (0.08*200)+200
+    if place == "Mohakhali":
+        price=price+40
+    else:
+        price=price+60
+    return price
+a=str(input("Burger Name :"))
+b=str(input("Enter Location :"))
+if b=="":
+    print(foodpanda(a))
+else:
+    print(foodpanda(a,b))
+
+#Medium-2:
+
+def replace_domain(x,y,z="sheba.com"):
+    return (x[:(len(x)-(len(z)))]+y)
+email=input("Enter email: ")
+new_domain=input("Enter new domain: ")
+old_domain=input("Enter old domain: ")
+if old_domain=="":
+    print(replace_domain(email,new_domain))
+else:
+    print(replace_domain(email,new_domain,old_domain))
+
+#Medium-3:
+
+def vowels(a):
+    s=list(a)
+    fat=len(a)
+    count=0
+    ans=""
+    collect=""
+    for i in range(fat):
+        if(s[i]=="a" or s[i]=="e" or s[i]=="i" or s[i]=="o" or s[i]=="u"):
+            collect=collect+s[i]+", "
+            count+=1
+    if count==0:
+        return print("No vowels in the name")
+    vol=list(collect)
+    vfat=len(collect)
+    for i in range(vfat-2):
+        ans=ans+vol[i]
+    ans=ans+"."
+    print("Vowels: "+str(ans)+" "+"Total number of vowels: "+str(count))
+vowels(input())
+
+#Medium-4:
+
+a=input()
+n=a.replace(" ","")
+if str(n) == str(n)[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+#Hard-1:
+
+import datetime
+def bonus(x,y,z):
+    pass
+    cT=datetime.datetime.now()
+    for a in range(len(x)):
+        print(x[a],end=": ")
+        service=int(((365*(cT.year-z[a].year))+int(cT.strftime("%j"))-int(z[a].strftime("%j")))/365)
+        if service<5:
+            bonus=int(0.1*y[a])
+        elif service<=10:
+            bonus=int(0.1*y[a]+5000)
+        else:
+            bonus=int((0.15*y[a])+15000)
+        ending=", "
+        if a==len(x)-1:
+            ending=""
+        print(bonus,end=ending)
+name=[]
+salary=[]
+date=[]
+while True:
+    name_input=input("Enter name (leave blank to stop):")
+    if name_input=="":
+        break
+    name.append(name_input)
+    salary.append(int(input("Enter salary:")))
+    dateInput=input("Enter name (format= yyyymmdd, eg, 20201231):")
+    date.append(datetime.datetime(int(dateInput[:4]),int(dateInput[4:6]),int(dateInput[6:])))
+bonus(name,salary,date)   
+
+#Hard-2:
+
+def dayss(a):
+    years=a//365
+    months=((a%365)//30)
+    days=((a%365)%30)
+    print(str(years) + " years," + str(months) + " months," + str(days) +" days")
+dayss(int(input("Days:")))
+
+#Hard-3:
+
+s=input()
+chars=list(s)
+fat=len(s)
+for i in range(fat-1):
+    chars[0]=chars[0].upper()
+    if chars[i]=="." or chars[i]=="?" or chars[i]=="!":
+        for j in range(i,fat-1):
+            if chars[j+1]!=" ":
+                chars[j+1]=chars[j+1].upper()
+                break
+    if chars[i]=="i" and chars[i-1]==" " and chars[i+1]==" ":
+        chars[i]=chars[i].upper()
+all=''.join(chars)
+print(all)
+               
